@@ -1,3 +1,5 @@
+import Header from './components/Header'
+import ProductList from './components/ProductList'
 import { GlobalCss } from './style'
 
 function App() {
@@ -5,7 +7,8 @@ function App() {
     <div>
       <>
         <GlobalCss />
-        <h1>Teste</h1>
+        <Header />
+        <ProductList />
       </>
     </div>
   )
