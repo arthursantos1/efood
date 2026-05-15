@@ -5,12 +5,12 @@ import {
   CardInfo,
   TextoNota,
   TextoDescricao,
-  Botao,
   CardTag,
   Tag
 } from './styles'
 
 import star from '../../assets/images/star.png'
+import { ButtonLink } from '../Button/styles'
 
 type Props = {
   title: string
@@ -30,7 +30,7 @@ const Product = ({ title, description, image, rating, infos }: Props) => (
         <img src={star} alt="Estrela" />
       </CardNota>
       <TextoDescricao>{description}</TextoDescricao>
-      <Botao>Saiba mais</Botao>
+      <ButtonLink to="/perfil">Saiba mais</ButtonLink>
     </CardInfo>
     <CardTag>
       {infos.map((info) => (

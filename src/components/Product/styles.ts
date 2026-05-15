@@ -48,17 +48,6 @@ export const TextoDescricao = styled.p`
   padding: 0 8px;
 `
 
-export const Botao = styled.button`
-  background-color: ${cores.vermelho};
-  color: ${cores.douradoClaro};
-  border: none;
-  padding: 4px 6px;
-  margin: 16px 8px 8px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-`
-
 export const CardTag = styled.div`
   position: absolute;
   top: 16px;
