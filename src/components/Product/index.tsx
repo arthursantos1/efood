@@ -6,32 +6,36 @@ import {
   TextoNota,
   TextoDescricao,
   Botao,
-  Tag,
-  CardTag
+  CardTag,
+  Tag
 } from './styles'
 
 import star from '../../assets/images/star.png'
 
-const Product = () => (
+type Props = {
+  title: string
+  description: string
+  image: string
+  rating: number
+  infos: string[]
+}
+
+const Product = ({ title, description, image, rating, infos }: Props) => (
   <Card>
-    <img src="https://dummyimage.com/472x217" alt="teste" />
+    <img src={image} alt={title} />
     <CardInfo>
-      <Titulo>Hioki Sushi</Titulo>
+      <Titulo>{title}</Titulo>
       <CardNota>
-        <TextoNota>4.9</TextoNota>
+        <TextoNota>{rating}</TextoNota>
         <img src={star} alt="Estrela" />
       </CardNota>
-      <TextoDescricao>
-        Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-        frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-        rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão
-        sem sair do lar com nosso delivery!
-      </TextoDescricao>
+      <TextoDescricao>{description}</TextoDescricao>
       <Botao>Saiba mais</Botao>
     </CardInfo>
     <CardTag>
-      <Tag>Destaque da semana</Tag>
-      <Tag>Japonesa</Tag>
+      {infos.map((info) => (
+        <Tag key={info}>{info}</Tag>
+      ))}
     </CardTag>
   </Card>
 )

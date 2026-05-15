@@ -4,11 +4,15 @@ import { cores } from '../../style'
 
 export const Card = styled.div`
   position: relative;
-  border: 1px solid ${cores.vermelho};
   max-width: 472px;
   width: 100%;
   background-color: ${cores.branco};
-  font-family: 'Roboto', sans-serif;
+  border: 1px solid ${cores.vermelho};
+
+  img {
+    width: 100%;
+    height: 217px;
+  }
 `
 
 export const CardInfo = styled.div`
@@ -25,6 +29,11 @@ export const CardNota = styled.div`
   position: absolute;
   top: 8px;
   right: 8px;
+
+  img {
+    width: 21px;
+    height: 21px;
+  }
 `
 
 export const TextoNota = styled.span`
