@@ -7,11 +7,12 @@ export const Card = styled.div`
   max-width: 472px;
   width: 100%;
   background-color: ${cores.branco};
-  border: 1px solid ${cores.vermelho};
+  border: 2px solid ${cores.vermelho};
 
   img {
     width: 100%;
     height: 217px;
+    object-fit: cover;
   }
 `
 

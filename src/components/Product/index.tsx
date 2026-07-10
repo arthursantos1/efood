@@ -17,10 +17,18 @@ type Props = {
   description: string
   image: string
   rating: number
-  infos: string[]
+  tipo: string
+  destaque?: boolean
 }
 
-const Product = ({ title, description, image, rating, infos }: Props) => (
+const Product = ({
+  title,
+  description,
+  image,
+  rating,
+  tipo,
+  destaque
+}: Props) => (
   <Card>
     <img src={image} alt={title} />
     <CardInfo>
@@ -33,9 +41,8 @@ const Product = ({ title, description, image, rating, infos }: Props) => (
       <ButtonLink to="/perfil">Saiba mais</ButtonLink>
     </CardInfo>
     <CardTag>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
+      <Tag>{tipo}</Tag>
+      {destaque && <Tag>Destaque da semana</Tag>}
     </CardTag>
   </Card>
 )

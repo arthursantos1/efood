@@ -9,7 +9,10 @@ export const Container = styled.section`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  column-gap: 24px;
-  row-gap: 48px;
+
+  li {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 80px;
+  }
 `
