@@ -24,6 +24,7 @@ const ProductList = ({ restaurantes }: Props) => {
               rating={restaurante.avaliacao}
               tipo={restaurante.tipo}
               destaque={restaurante.destacado}
+              id={restaurante.id}
             />
           ))}
         </li>

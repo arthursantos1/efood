@@ -13,6 +13,7 @@ import star from '../../assets/images/star.png'
 import { ButtonLink } from '../Button/styles'
 
 type Props = {
+  id: number
   title: string
   description: string
   image: string
@@ -27,24 +28,27 @@ const Product = ({
   image,
   rating,
   tipo,
-  destaque
-}: Props) => (
-  <Card>
-    <img src={image} alt={title} />
-    <CardInfo>
-      <Titulo>{title}</Titulo>
-      <CardNota>
-        <TextoNota>{rating}</TextoNota>
-        <img src={star} alt="Estrela" />
-      </CardNota>
-      <TextoDescricao>{description}</TextoDescricao>
-      <ButtonLink to="/perfil">Saiba mais</ButtonLink>
-    </CardInfo>
-    <CardTag>
-      <Tag>{tipo}</Tag>
-      {destaque && <Tag>Destaque da semana</Tag>}
-    </CardTag>
-  </Card>
-)
+  destaque,
+  id
+}: Props) => {
+  return (
+    <Card>
+      <img src={image} alt={title} />
+      <CardInfo>
+        <Titulo>{title}</Titulo>
+        <CardNota>
+          <TextoNota>{rating}</TextoNota>
+          <img src={star} alt="Estrela" />
+        </CardNota>
+        <TextoDescricao>{description}</TextoDescricao>
+        <ButtonLink to={`/perfil/${id}`}>Saiba mais</ButtonLink>
+      </CardInfo>
+      <CardTag>
+        <Tag>{tipo}</Tag>
+        {destaque && <Tag>Destaque da semana</Tag>}
+      </CardTag>
+    </Card>
+  )
+}
 
 export default Product
