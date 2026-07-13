@@ -3,7 +3,6 @@ import { ContainerItens, Modal, ModalContent } from './styles'
 import { Cardapio } from '../../../Pages/Home'
 
 import fechar from '../../../assets/images/close.png'
-import pizza from '../../../assets/images/pizza.jpeg'
 import { useState } from 'react'
 
 type Props = {
@@ -11,7 +10,8 @@ type Props = {
 }
 
 const ProductItem = ({ cardapios }: Props) => {
-  const [modalEstaAberto, setModalEstaAberto] = useState(false)
+  /* Foi criado um estado que verifica qual item foi selecionado e armazenado */
+  const [itemSelecionado, setItemSelecionado] = useState<Cardapio | null>(null)
 
   return (
     <>
@@ -21,40 +21,40 @@ const ProductItem = ({ cardapios }: Props) => {
             <img src={cardapio.foto} alt={cardapio.nome} />
             <h3>{cardapio.nome}</h3>
             <p>{cardapio.descricao}</p>
-            <button onClick={() => setModalEstaAberto(true)}>
+            <button
+              onClick={() => {
+                setItemSelecionado(cardapio)
+              }}
+            >
               Adicionar ao carrinho
             </button>
           </li>
         ))}
       </ContainerItens>
-      <Modal className={modalEstaAberto ? 'visivel' : ''}>
+      <Modal className={itemSelecionado ? 'visivel' : ''}>
         <ModalContent>
           <header>
             <img
               src={fechar}
               alt="Botão fechar modal"
-              onClick={() => setModalEstaAberto(false)}
+              onClick={() => {
+                setItemSelecionado(null)
+              }}
             />
           </header>
           <div>
-            <img src={pizza} alt="Imagem da comida" />
+            <img src={itemSelecionado?.foto} alt="Imagem da comida" />
             <div className="conteudo">
-              <h4>Titulo da comida</h4>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam
-                accusantium maiores cumque voluptatibus aspernatur quod impedit
-                neque fuga doloribus, commodi, repellat a ratione mollitia
-                mollitia voluptates eos labore eligendi.
-              </p>
-              <p>Serve 2 a 3 pessoas</p>
-              <button>Adicionar ao Carrinho - R$60,90</button>
+              <h4>{itemSelecionado?.nome}</h4>
+              <p>{itemSelecionado?.descricao}</p>
+              <p>Serve: {itemSelecionado?.porcao}</p>
+              <button>
+                Adicionar ao Carrinho - R${itemSelecionado?.preco.toFixed(2)}
+              </button>
             </div>
           </div>
         </ModalContent>
-        <div
-          className="overlay"
-          onClick={() => setModalEstaAberto(false)}
-        ></div>
+        <div className="overlay" onClick={() => setItemSelecionado(null)}></div>
       </Modal>
     </>
   )
