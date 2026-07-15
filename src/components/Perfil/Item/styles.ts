@@ -43,6 +43,7 @@ export const ContainerItens = styled.ul`
       color: ${cores.vermelho};
       font-weight: bold;
       font-size: 14px;
+      cursor: pointer;
     }
   }
 `
@@ -56,6 +57,7 @@ export const Modal = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
+  padding: 16px;
 
   &.visivel {
     display: flex;
@@ -90,9 +92,9 @@ export const ModalContent = styled.div`
     }
   }
 
-  div {
+  .container {
     display: flex;
-    justify-contet: space-beetwen;
+    justify-content: space-betwen;
   }
 
   img {
@@ -106,14 +108,22 @@ export const ModalContent = styled.div`
   .conteudo {
     display: block;
 
+    h4 {
+      font-size: 18px;
+      font-height: bold;
+    }
+
     p {
       margin: 16px 0;
+      font-size: 14px;
+      line-height: 22px;
     }
 
     button {
       background-color: ${cores.douradoClaro};
       color: ${cores.vermelho};
       font-weight: bold;
+      font-size: 14px;
       padding: 16px 8px;
       border: none;
       width: 218px;

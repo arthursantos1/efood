@@ -1,12 +1,20 @@
 import { Banner, ContainerPerfil } from './styles'
 
-const Apresentacao = () => (
-  <Banner>
-    <ContainerPerfil>
-      <h4>Tipo de comida</h4>
-      <p>Descrição da comida</p>
-    </ContainerPerfil>
-  </Banner>
-)
+import { Restaurant } from '../../../Pages/Home'
+
+type Props = {
+  banner: Restaurant
+}
+
+const Apresentacao = ({ banner }: Props) => {
+  return (
+    <Banner style={{ backgroundImage: `url(${banner.capa})` }}>
+      <ContainerPerfil>
+        <h4>{banner.tipo}</h4>
+        <p>{banner.titulo}</p>
+      </ContainerPerfil>
+    </Banner>
+  )
+}
 
 export default Apresentacao

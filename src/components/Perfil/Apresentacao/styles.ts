@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 import { cores } from '../../../style'
 
-import ApresentacaoImage from '../../../assets/images/apresentacao.jpeg'
-
 export const Banner = styled.section`
   height: 280px;
-  background-image: url(${ApresentacaoImage});
   background-size: cover;
+  object-fit: cover;
 `
 
 export const ContainerPerfil = styled.div`

@@ -42,7 +42,7 @@ const ProductItem = ({ cardapios }: Props) => {
               }}
             />
           </header>
-          <div>
+          <div className="container">
             <img src={itemSelecionado?.foto} alt="Imagem da comida" />
             <div className="conteudo">
               <h4>{itemSelecionado?.nome}</h4>
