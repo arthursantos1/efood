@@ -126,7 +126,7 @@ export const ModalContent = styled.div`
       font-size: 14px;
       padding: 16px 8px;
       border: none;
-      width: 218px;
+      width: 50%;
       cursor: pointer;
     }
   }
