@@ -1,6 +1,6 @@
 import { Banner, ContainerPerfil } from './styles'
 
-import { Restaurant } from '../../../Pages/Home'
+import { Restaurant } from '../../../models/Restaurant'
 
 type Props = {
   banner: Restaurant

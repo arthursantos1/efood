@@ -1,6 +1,6 @@
 import { ContainerItens, Modal, ModalContent } from './styles'
 
-import { Cardapio } from '../../../Pages/Home'
+import { Cardapio } from '../../../models/Restaurant'
 
 import fechar from '../../../assets/images/close.png'
 import { useState } from 'react'
