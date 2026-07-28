@@ -5,6 +5,7 @@ import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 import ProductItem from '../../components/Perfil/Item'
 
 import { useGetCardapioQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 const Perfil = () => {
   const { id } = useParams()
@@ -16,6 +17,7 @@ const Perfil = () => {
         <HeaderPerfil />
         <Apresentacao banner={restaurante} />
         <ProductItem cardapios={restaurante?.cardapio} />
+        <Cart />
       </>
     )
   }
