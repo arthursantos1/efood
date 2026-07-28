@@ -18,11 +18,6 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  p {
-    font-weight: 900;
-    font-size: 18px;
-  }
-
   img {
     width: 124px;
     height: 57px;
@@ -33,5 +28,13 @@ export const HomeLink = styled(Link)`
   font-weight: 900;
   font-size: 18px;
   text-decoration: none;
+  color: ${cores.vermelho};
+`
+
+export const CartButton = styled.button`
+  font-weight: 900;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
   color: ${cores.vermelho};
 `
