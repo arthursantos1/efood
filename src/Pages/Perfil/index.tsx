@@ -9,20 +9,27 @@ import Cart from '../../components/Cart'
 
 const Perfil = () => {
   const { id } = useParams()
-  const { data: restaurante } = useGetCardapioQuery(id!)
 
-  if (restaurante) {
-    return (
-      <>
-        <HeaderPerfil />
-        <Apresentacao banner={restaurante} />
-        <ProductItem cardapios={restaurante?.cardapio} />
-        <Cart />
-      </>
-    )
+  const { data: restaurante } = useGetCardapioQuery(id ?? '', {
+    skip: !id
+  })
+
+  if (!id) {
+    return <h4>Restaurante não encontrado.</h4>
   }
 
-  return <h4>Carregando...</h4>
+  if (!restaurante) {
+    return <h4>Carregando...</h4>
+  }
+
+  return (
+    <>
+      <HeaderPerfil />
+      <Apresentacao banner={restaurante} />
+      <ProductItem cardapios={restaurante.cardapio} />
+      <Cart />
+    </>
+  )
 }
 
 export default Perfil
