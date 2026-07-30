@@ -33,15 +33,16 @@ export const Sidebar = styled.aside`
   z-index: 1;
   max-width: 360px;
   width: 100%;
-  padding: 40px 16px 0 8px;
+  padding: 16px 8px;
   overflow-y: auto;
   scrollbar-width: thin;
 
   ${ButtonContainer} {
     background-color: ${cores.douradoClaro};
     color: ${cores.vermelho};
-    max-width: 100%;
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 `
 export const CartItem = styled.li`
@@ -79,7 +80,7 @@ export const CartItem = styled.li`
     position: absolute;
     bottom: 8px;
     right: 8px;
-    curso: pointer;
+    cursor: pointer;
   }
 `
 

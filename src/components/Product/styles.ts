@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../style'
+import { breakpoints, cores } from '../../style'
 
 export const Card = styled.div`
   position: relative;
@@ -13,6 +13,10 @@ export const Card = styled.div`
     width: 100%;
     height: 217px;
     object-fit: cover;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 80%;
   }
 `
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { cores } from '../../../style'
+import { breakpoints, cores } from '../../../style'
 
 import FundoHeader from '../../../assets/images/fundoHeader.jpeg'
 
@@ -21,6 +21,14 @@ export const HeaderContent = styled.div`
   img {
     width: 124px;
     height: 57px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    display: none;
   }
 `
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../style'
 
 export const Container = styled.section`
   display: flex;
@@ -14,5 +15,9 @@ export const List = styled.ul`
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 80px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    grid-template-columns: 1fr;
   }
 `

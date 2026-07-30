@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../../style'
+import { breakpoints, cores } from '../../../style'
 
 export const ContainerItens = styled.ul`
   max-width: 1024px;
@@ -48,6 +48,15 @@ export const ContainerItens = styled.ul`
       font-size: 14px;
       cursor: pointer;
     }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr 1fr;
+    max-width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    grid-template-columns: 1fr;
   }
 `
 
@@ -132,6 +141,20 @@ export const ModalContent = styled.div`
       border: none;
       width: 50%;
       cursor: pointer;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 90%;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 80vh;
+
+    img {
+      max-width: 100%;
+      height: 200px;
+      margin-right: 0;
+      margin-bottom 16px;
     }
   }
 `

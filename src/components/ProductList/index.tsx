@@ -12,7 +12,7 @@ const ProductList = ({ restaurantes }: Props) => {
   }
 
   return (
-    <Container>
+    <Container className="container">
       <List>
         <li>
           {restaurantes.map((restaurante) => (
