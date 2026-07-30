@@ -106,6 +106,7 @@ export const ModalContent = styled.div`
     margin-left: 32px;
     margin-right: 24px;
     margin-bottom: 32px;
+    objet-fit: cover;
   }
 
   .conteudo {

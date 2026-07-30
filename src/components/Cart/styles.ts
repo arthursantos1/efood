@@ -34,7 +34,7 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 40px 16px 0 8px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: thin;
 
   ${ButtonContainer} {

@@ -17,7 +17,9 @@ const HeaderPerfil = () => {
     <HeaderContainer>
       <HeaderContent>
         <HomeLink to="/">Restaurantes</HomeLink>
-        <img src={Logo} alt="Logo do Efood" />
+        <a href="/">
+          <img src={Logo} alt="Logo do Efood" />
+        </a>
         <CartButton onClick={openCart}>
           {items.length} produtos(s) no carrinho
         </CartButton>
