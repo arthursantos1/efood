@@ -15,10 +15,13 @@ export const ContainerItens = styled.ul`
     margin-bottom: 32px;
     padding: 16px 8px;
     color: ${cores.douradoClaro};
+    max-width: 320px;
+    width: 100%;
 
     img {
-      width: 304px;
+      width: 100%;
       height: 167px;
+      object-fit: cover;
     }
 
     h3 {

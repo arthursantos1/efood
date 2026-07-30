@@ -12,6 +12,12 @@ type Props = {
 }
 
 const ProductItem = ({ cardapios }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 95) {
+      return descricao.slice(0, 120) + '...'
+    }
+    return descricao
+  }
   /* Foi criado um estado que verifica qual item foi selecionado e armazenado */
   const [itemSelecionado, setItemSelecionado] = useState<Cardapio | null>(null)
 
@@ -29,7 +35,7 @@ const ProductItem = ({ cardapios }: Props) => {
           <li key={cardapio.id}>
             <img src={cardapio.foto} alt={cardapio.nome} />
             <h3>{cardapio.nome}</h3>
-            <p>{cardapio.descricao}</p>
+            <p>{getDescricao(cardapio.descricao)}</p>
             <button
               onClick={() => {
                 setItemSelecionado(cardapio)

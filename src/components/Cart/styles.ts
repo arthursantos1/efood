@@ -8,7 +8,7 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #000;
   opacity: 0.7;
 `
@@ -34,6 +34,8 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 40px 16px 0 8px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 
   ${ButtonContainer} {
     background-color: ${cores.douradoClaro};
@@ -52,19 +54,19 @@ export const CartItem = styled.li`
   img {
     height: 80px;
     width: 80px;
+    object-fit: cover;
+    margin-right: 8px;
   }
 
   h3 {
     color: ${cores.vermelho};
     font-weight: bold;
-    font-size: 18px;
-    margin-left: 8px;
+    font-size: 16px;
   }
 
   p {
     font-size: 14px;
     margin-top: 16px;
-    margin-left: 8px;
   }
 
   button {

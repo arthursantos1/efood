@@ -37,4 +37,5 @@ export const CartButton = styled.button`
   border: none;
   background-color: transparent;
   color: ${cores.vermelho};
+  cursor: pointer;
 `
