@@ -14,10 +14,6 @@ export const Card = styled.div`
     height: 217px;
     object-fit: cover;
   }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    max-width: 80%;
-  }
 `
 
 export const CardInfo = styled.div`

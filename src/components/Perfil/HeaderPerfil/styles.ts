@@ -28,7 +28,8 @@ export const HeaderContent = styled.div`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    display: none;
+    flex-direction: column;
+    padding: 16px 0;
   }
 `
 

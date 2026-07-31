@@ -1,23 +1,21 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../style'
 
-export const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 80px;
-`
-
 export const List = styled.ul`
   display: grid;
+  margin-top: 80px;
 
   li {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 80px;
-  }
 
-  @media (max-width: ${breakpoints.mobile}) {
-    grid-template-columns: 1fr;
+    @media (max-width: ${breakpoints.tablet}) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: ${breakpoints.mobile}) {
+      grid-template-columns: 1fr;
+    }
   }
 `
