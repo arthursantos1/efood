@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../style'
+import { cores } from '../../style'
 
 export const Card = styled.div`
   position: relative;
