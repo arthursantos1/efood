@@ -5,7 +5,7 @@ import { Cardapio } from '../../../models/Restaurant'
 import fechar from '../../../assets/images/close.png'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { add, open } from '../../../store/reducers/Cart'
+import { add, open, close } from '../../../store/reducers/Cart'
 
 type Props = {
   cardapios: Cardapio[]
@@ -22,6 +22,10 @@ const ProductItem = ({ cardapios }: Props) => {
   const [itemSelecionado, setItemSelecionado] = useState<Cardapio | null>(null)
 
   const dispatch = useDispatch()
+
+  const closeProdut = () => {
+    dispatch(close())
+  }
 
   const addToCart = (cardapio: Cardapio) => {
     dispatch(add(cardapio))

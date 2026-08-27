@@ -1,26 +1,32 @@
 import { ButtonContainer, ButtonLink } from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
   children: string
+  disabled?: boolean
 }
 
-const Button = ({ type, title, to, onClick, children }: Props) => {
-  if (type === 'button') {
+const Button = ({ type, title, to, onClick, children, disabled }: Props) => {
+  if (type === 'link') {
     return (
-      <ButtonContainer type={type} title={title} onClick={onClick}>
+      <ButtonLink to={to as string} title={title}>
         {children}
-      </ButtonContainer>
+      </ButtonLink>
     )
   }
 
   return (
-    <ButtonLink to={to as string} title={title}>
+    <ButtonContainer
+      type={type}
+      title={title}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
-    </ButtonLink>
+    </ButtonContainer>
   )
 }
 
