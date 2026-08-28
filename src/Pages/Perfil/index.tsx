@@ -5,6 +5,7 @@ import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 import ProductItem from '../../components/Perfil/Item'
 import { useGetCardapioQuery } from '../../services/api'
 import Cart from '../../components/Cart'
+import Loader from '../../components/Loader'
 
 const Perfil = () => {
   const { id } = useParams()
@@ -18,7 +19,7 @@ const Perfil = () => {
   }
 
   if (!restaurante) {
-    return <h4>Carregando...</h4>
+    return <Loader />
   }
 
   return (

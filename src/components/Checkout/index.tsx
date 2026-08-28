@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import { usePurchaseMutation } from '../../services/api'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
+import InputMask from 'react-input-mask'
 
 import Button from '../Button'
 import { RootReducer } from '../../store'
@@ -48,8 +49,8 @@ const Checkout = ({ onVoltar }: Props) => {
         .max(32, 'O máximo de caracteres é 32')
         .required('Campo obrigatorio'),
       cep: Yup.string()
-        .min(8, 'O minimo de caracteres é 8')
-        .max(8, 'O maximo de caracteres é 8')
+        .min(9, 'O minimo de caracteres é 9')
+        .max(9, 'O maximo de caracteres é 9')
         .required('O Campo é obrigatorio'),
       numero: Yup.string()
         .min(2, 'O Campo deve ter no minimo 2 caracteres')
@@ -223,7 +224,7 @@ const Checkout = ({ onVoltar }: Props) => {
               <S.Row>
                 <S.InputGroup maxWidth="155px">
                   <label htmlFor="cep">CEP</label>
-                  <input
+                  <InputMask
                     type="text"
                     id="cep"
                     name="cep"
@@ -231,6 +232,7 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cep') ? 'error' : ''}
+                    mask="99999-999"
                   />
                 </S.InputGroup>
                 <S.InputGroup maxWidth="155px">
@@ -296,7 +298,7 @@ const Checkout = ({ onVoltar }: Props) => {
               <S.Row>
                 <S.InputGroup maxWidth="228px">
                   <label htmlFor="cardNumber">Número do cartão</label>
-                  <input
+                  <InputMask
                     type="text"
                     id="cardNumber"
                     name="cardNumber"
@@ -304,11 +306,12 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cardNumber') ? 'error' : ''}
+                    mask="9999 9999 9999 9999"
                   />
                 </S.InputGroup>
                 <S.InputGroup maxWidth="87px">
                   <label htmlFor="cardCode">CVV</label>
-                  <input
+                  <InputMask
                     type="text"
                     id="cardCode"
                     name="cardCode"
@@ -316,13 +319,14 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cardCode') ? 'error' : ''}
+                    mask="999"
                   />
                 </S.InputGroup>
               </S.Row>
               <S.Row>
                 <S.InputGroup maxWidth="155px">
                   <label htmlFor="expireMonth">Mês de vencimento</label>
-                  <input
+                  <InputMask
                     type="text"
                     id="expireMonth"
                     name="expireMonth"
@@ -330,11 +334,12 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireMonth') ? 'error' : ''}
+                    mask="99"
                   />
                 </S.InputGroup>
                 <S.InputGroup maxWidth="155px">
                   <label htmlFor="expireYear">Ano de vencimento</label>
-                  <input
+                  <InputMask
                     type="text"
                     id="expireYear"
                     name="expireYear"
@@ -342,6 +347,7 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireYear') ? 'error' : ''}
+                    mask="00"
                   />
                 </S.InputGroup>
               </S.Row>

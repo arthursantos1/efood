@@ -1,4 +1,5 @@
 import Header from '../../components/Header'
+import Loader from '../../components/Loader'
 import ProductList from '../../components/ProductList'
 import { useGetRestaurantQuery } from '../../services/api'
 
@@ -14,7 +15,7 @@ const Home = () => {
     )
   }
 
-  return <h4>Carregando...</h4>
+  return <Loader />
 }
 
 export default Home

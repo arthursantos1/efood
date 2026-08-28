@@ -1,4 +1,5 @@
 import { Restaurant } from '../../models/Restaurant'
+import Loader from '../Loader'
 import Product from '../Product'
 
 import { List } from './styles'
@@ -9,7 +10,7 @@ type Props = {
 
 const ProductList = ({ restaurantes }: Props) => {
   if (restaurantes.length === 0) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
