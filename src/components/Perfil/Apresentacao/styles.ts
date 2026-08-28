@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../../style'
+import { breakpoints, colors } from '../../../style'
 
 export const Banner = styled.section`
   height: 280px;
@@ -14,14 +14,14 @@ export const ContainerPerfil = styled.div`
   margin: 0 auto;
 
   h4 {
-    color: ${cores.branco};
+    color: ${colors.white};
     font-size: 32px;
     font-weight: 100;
     margin-top: 24px;
   }
 
   p {
-    color: ${cores.branco};
+    color: ${colors.white};
     font-size: 32px;
     font-weight: 900;
     margin-bottom: 32px;

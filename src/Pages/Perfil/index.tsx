@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import Apresentacao from '../../components/Perfil/Apresentacao'
 import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 import ProductItem from '../../components/Perfil/Item'
-
 import { useGetCardapioQuery } from '../../services/api'
 import Cart from '../../components/Cart'
 

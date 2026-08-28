@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Card, InputGroup, Row, ContainerButton } from './styles'
-import Button from '../Button'
 import { useFormik } from 'formik'
-import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../services/api'
 import { useDispatch, useSelector } from 'react-redux'
+import * as Yup from 'yup'
+
+import Button from '../Button'
 import { RootReducer } from '../../store'
 import { getTotalPrice, parseToBrl } from '../../utils'
 import { close, clear } from '../../store/reducers/Cart'
+
+import * as S from './styles'
 
 type Props = {
   onVoltar: () => void
@@ -148,7 +150,7 @@ const Checkout = ({ onVoltar }: Props) => {
   return (
     <form onSubmit={form.handleSubmit}>
       {isSuccess && data && etapa === 'confirmacao' ? (
-        <Card>
+        <S.Card>
           <h4>Pedido realizado - {data?.orderId}</h4>
           <p>
             Estamos felizes em informar que seu pedido já está em processo de
@@ -167,7 +169,7 @@ const Checkout = ({ onVoltar }: Props) => {
             Esperamos que desfrute de uma deliciosa e agradável experiência
             gastronômica. Bom apetite!
           </p>
-          <ContainerButton>
+          <S.ContainerButton>
             <Button
               type="button"
               title="Concluir pedido"
@@ -175,14 +177,14 @@ const Checkout = ({ onVoltar }: Props) => {
             >
               Concluir
             </Button>
-          </ContainerButton>
-        </Card>
+          </S.ContainerButton>
+        </S.Card>
       ) : (
         <>
           {etapa === 'endereco' && (
-            <Card>
+            <S.Card>
               <h4>Entrega</h4>
-              <InputGroup>
+              <S.InputGroup>
                 <label htmlFor="nome">Quem irá receber</label>
                 <input
                   type="text"
@@ -193,8 +195,8 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('nome') ? 'error' : ''}
                 />
-              </InputGroup>
-              <InputGroup>
+              </S.InputGroup>
+              <S.InputGroup>
                 <label htmlFor="endereco">Endereço</label>
                 <input
                   type="text"
@@ -205,8 +207,8 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('endereco') ? 'error' : ''}
                 />
-              </InputGroup>
-              <InputGroup>
+              </S.InputGroup>
+              <S.InputGroup>
                 <label htmlFor="cidade">Cidade</label>
                 <input
                   type="text"
@@ -217,9 +219,9 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('cidade') ? 'error' : ''}
                 />
-              </InputGroup>
-              <Row>
-                <InputGroup maxWidth="155px">
+              </S.InputGroup>
+              <S.Row>
+                <S.InputGroup maxWidth="155px">
                   <label htmlFor="cep">CEP</label>
                   <input
                     type="text"
@@ -230,8 +232,8 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cep') ? 'error' : ''}
                   />
-                </InputGroup>
-                <InputGroup maxWidth="155px">
+                </S.InputGroup>
+                <S.InputGroup maxWidth="155px">
                   <label htmlFor="numero">Número</label>
                   <input
                     type="text"
@@ -242,9 +244,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('numero') ? 'error' : ''}
                   />
-                </InputGroup>
-              </Row>
-              <InputGroup>
+                </S.InputGroup>
+              </S.Row>
+              <S.InputGroup>
                 <label htmlFor="complemento">Complemento (opcional)</label>
                 <input
                   type="text"
@@ -255,8 +257,8 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('complemento') ? 'error' : ''}
                 />
-              </InputGroup>
-              <ContainerButton>
+              </S.InputGroup>
+              <S.ContainerButton>
                 <Button
                   type="button"
                   title="Continuar com o Pagamento"
@@ -271,15 +273,15 @@ const Checkout = ({ onVoltar }: Props) => {
                 >
                   Voltar para o carrinho
                 </Button>
-              </ContainerButton>
-            </Card>
+              </S.ContainerButton>
+            </S.Card>
           )}
           {etapa === 'pagamento' && (
-            <Card>
+            <S.Card>
               <h4>
                 Pagamento - Valor a pagar {parseToBrl(getTotalPrice(items))}
               </h4>
-              <InputGroup>
+              <S.InputGroup>
                 <label htmlFor="cardName">Nome no cartão</label>
                 <input
                   type="text"
@@ -290,9 +292,9 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('cardName') ? 'error' : ''}
                 />
-              </InputGroup>
-              <Row>
-                <InputGroup maxWidth="228px">
+              </S.InputGroup>
+              <S.Row>
+                <S.InputGroup maxWidth="228px">
                   <label htmlFor="cardNumber">Número do cartão</label>
                   <input
                     type="text"
@@ -303,8 +305,8 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cardNumber') ? 'error' : ''}
                   />
-                </InputGroup>
-                <InputGroup maxWidth="87px">
+                </S.InputGroup>
+                <S.InputGroup maxWidth="87px">
                   <label htmlFor="cardCode">CVV</label>
                   <input
                     type="text"
@@ -315,10 +317,10 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cardCode') ? 'error' : ''}
                   />
-                </InputGroup>
-              </Row>
-              <Row>
-                <InputGroup maxWidth="155px">
+                </S.InputGroup>
+              </S.Row>
+              <S.Row>
+                <S.InputGroup maxWidth="155px">
                   <label htmlFor="expireMonth">Mês de vencimento</label>
                   <input
                     type="text"
@@ -329,8 +331,8 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireMonth') ? 'error' : ''}
                   />
-                </InputGroup>
-                <InputGroup maxWidth="155px">
+                </S.InputGroup>
+                <S.InputGroup maxWidth="155px">
                   <label htmlFor="expireYear">Ano de vencimento</label>
                   <input
                     type="text"
@@ -341,9 +343,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireYear') ? 'error' : ''}
                   />
-                </InputGroup>
-              </Row>
-              <ContainerButton>
+                </S.InputGroup>
+              </S.Row>
+              <S.ContainerButton>
                 <Button
                   type="submit"
                   title="Finalizar pagamento"
@@ -361,8 +363,8 @@ const Checkout = ({ onVoltar }: Props) => {
                 >
                   Voltar para edição de endereço
                 </Button>
-              </ContainerButton>
-            </Card>
+              </S.ContainerButton>
+            </S.Card>
           )}
         </>
       )}

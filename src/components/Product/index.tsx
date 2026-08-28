@@ -1,16 +1,7 @@
-import {
-  Card,
-  CardNota,
-  Titulo,
-  CardInfo,
-  TextoNota,
-  TextoDescricao,
-  CardTag,
-  Tag
-} from './styles'
-
 import star from '../../assets/images/star.png'
 import { ButtonLink } from '../Button/styles'
+
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -32,22 +23,22 @@ const Product = ({
   id
 }: Props) => {
   return (
-    <Card>
+    <S.Card>
       <img src={image} alt={title} />
-      <CardInfo>
-        <Titulo>{title}</Titulo>
-        <CardNota>
-          <TextoNota>{rating}</TextoNota>
+      <S.CardInfo>
+        <S.Title>{title}</S.Title>
+        <S.CardNote>
+          <S.TextNote>{rating}</S.TextNote>
           <img src={star} alt="Estrela" />
-        </CardNota>
-        <TextoDescricao>{description}</TextoDescricao>
+        </S.CardNote>
+        <S.TextDescription>{description}</S.TextDescription>
         <ButtonLink to={`/perfil/${id}`}>Saiba mais</ButtonLink>
-      </CardInfo>
-      <CardTag>
-        <Tag>{tipo}</Tag>
-        {destaque && <Tag>Destaque da semana</Tag>}
-      </CardTag>
-    </Card>
+      </S.CardInfo>
+      <S.CardTag>
+        <S.Tag>{tipo}</S.Tag>
+        {destaque && <S.Tag>Destaque da semana</S.Tag>}
+      </S.CardTag>
+    </S.Card>
   )
 }
 

@@ -1,40 +1,32 @@
-import { ContainerItens, Modal, ModalContent } from './styles'
-
-import { Cardapio } from '../../../models/Restaurant'
-
-import fechar from '../../../assets/images/close.png'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { add, open, close } from '../../../store/reducers/Cart'
+
+import { Cardapio } from '../../../models/Restaurant'
+import closeIcon from '../../../assets/images/close.png'
+import { add, open } from '../../../store/reducers/Cart'
+import { getDescricao } from '../../../utils'
+
+import * as S from './styles'
 
 type Props = {
   cardapios: Cardapio[]
 }
 
 const ProductItem = ({ cardapios }: Props) => {
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 95) {
-      return descricao.slice(0, 120) + '...'
-    }
-    return descricao
-  }
   /* Foi criado um estado que verifica qual item foi selecionado e armazenado */
   const [itemSelecionado, setItemSelecionado] = useState<Cardapio | null>(null)
 
   const dispatch = useDispatch()
 
-  const closeProdut = () => {
-    dispatch(close())
-  }
-
   const addToCart = (cardapio: Cardapio) => {
     dispatch(add(cardapio))
     dispatch(open())
+    setItemSelecionado(null)
   }
 
   return (
     <>
-      <ContainerItens>
+      <S.ContainerItens>
         {cardapios.map((cardapio) => (
           <li key={cardapio.id}>
             <img src={cardapio.foto} alt={cardapio.nome} />
@@ -49,12 +41,12 @@ const ProductItem = ({ cardapios }: Props) => {
             </button>
           </li>
         ))}
-      </ContainerItens>
-      <Modal className={itemSelecionado ? 'visivel' : ''}>
-        <ModalContent>
+      </S.ContainerItens>
+      <S.Modal className={itemSelecionado ? 'visivel' : ''}>
+        <S.ModalContent>
           <header>
             <img
-              src={fechar}
+              src={closeIcon}
               alt="Botão fechar modal"
               onClick={() => {
                 setItemSelecionado(null)
@@ -74,9 +66,9 @@ const ProductItem = ({ cardapios }: Props) => {
               </button>
             </div>
           </div>
-        </ModalContent>
+        </S.ModalContent>
         <div className="overlay" onClick={() => setItemSelecionado(null)}></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

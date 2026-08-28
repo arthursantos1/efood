@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cores } from '../../style'
+import { colors } from '../../style'
 
 export const Rodape = styled.footer`
-  background-color: ${cores.douradoClaro};
+  background-color: ${colors.lightGold};
   margin-top: 120px;
 `
 

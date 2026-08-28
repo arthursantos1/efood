@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { breakpoints, cores } from '../../../style'
 
+import { breakpoints, colors } from '../../../style'
 import FundoHeader from '../../../assets/images/fundoHeader.jpeg'
 
 export const HeaderContainer = styled.header`
@@ -37,7 +37,7 @@ export const HomeLink = styled(Link)`
   font-weight: 900;
   font-size: 18px;
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 `
 
 export const CartButton = styled.button`
@@ -45,6 +45,6 @@ export const CartButton = styled.button`
   font-size: 18px;
   border: none;
   background-color: transparent;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   cursor: pointer;
 `

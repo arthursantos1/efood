@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../../style'
+import { breakpoints, colors } from '../../../style'
 
 export const ContainerItens = styled.ul`
   max-width: 1024px;
@@ -11,10 +11,10 @@ export const ContainerItens = styled.ul`
   margin-top: 56px;
 
   li {
-    background-color: ${cores.vermelho};
+    background-color: ${colors.red};
     margin-bottom: 32px;
     padding: 16px 8px;
-    color: ${cores.douradoClaro};
+    color: ${colors.lightGold};
     max-width: 320px;
     width: 100%;
 
@@ -40,10 +40,10 @@ export const ContainerItens = styled.ul`
     button {
       display: block;
       width: 100%;
-      background-color: ${cores.douradoClaro};
+      background-color: ${colors.lightGold};
       padding: 4px;
       border: none;
-      color: ${cores.vermelho};
+      color: ${colors.red};
       font-weight: bold;
       font-size: 14px;
       cursor: pointer;
@@ -87,8 +87,8 @@ export const Modal = styled.div`
 
 export const ModalContent = styled.div`
   max-width: 1024px;
-  background-color: ${cores.vermelho};
-  color: ${cores.branco};
+  background-color: ${colors.red};
+  color: ${colors.white};
   position: relative;
   z-index: 1;
 
@@ -133,8 +133,8 @@ export const ModalContent = styled.div`
     }
 
     button {
-      background-color: ${cores.douradoClaro};
-      color: ${cores.vermelho};
+      background-color: ${colors.lightGold};
+      color: ${colors.red};
       font-weight: bold;
       font-size: 14px;
       padding: 16px 8px;

@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom'
 
-import { Rodape, FooterText, FooterContainer, SocialMedia } from './styles'
-
 import LogoEfood from '../../assets/images/logo.png'
 import InstagramIcon from '../../assets/images/instagram.png'
 import FacebookIcon from '../../assets/images/facebook.png'
 import TwitterIcon from '../../assets/images/twitter.png'
 
+import * as S from './styles'
+
 const Footer = () => (
-  <Rodape>
-    <FooterContainer>
+  <S.Rodape>
+    <S.FooterContainer>
       <img src={LogoEfood} alt="Logo efood" />
-      <SocialMedia>
+      <S.SocialMedia>
         <Link to="https://www.instagram.com">
           <img src={InstagramIcon} alt="Instagram" />
         </Link>
@@ -21,14 +21,14 @@ const Footer = () => (
         <Link to="https://www.twitter.com">
           <img src={TwitterIcon} alt="Twitter" />
         </Link>
-      </SocialMedia>
-      <FooterText>
+      </S.SocialMedia>
+      <S.FooterText>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
-      </FooterText>
-    </FooterContainer>
-  </Rodape>
+      </S.FooterText>
+    </S.FooterContainer>
+  </S.Rodape>
 )
 
 export default Footer

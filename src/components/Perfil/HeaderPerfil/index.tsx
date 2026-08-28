@@ -1,9 +1,10 @@
-import { HeaderContainer, HeaderContent, HomeLink, CartButton } from './styles'
-
-import Logo from '../../../assets/images/logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
+
+import Logo from '../../../assets/images/logo.png'
 import { open } from '../../../store/reducers/Cart'
+
+import * as S from './styles'
 
 const HeaderPerfil = () => {
   const dispatch = useDispatch()
@@ -14,17 +15,17 @@ const HeaderPerfil = () => {
   }
 
   return (
-    <HeaderContainer>
-      <HeaderContent>
-        <HomeLink to="/">Restaurantes</HomeLink>
+    <S.HeaderContainer>
+      <S.HeaderContent>
+        <S.HomeLink to="/">Restaurantes</S.HomeLink>
         <a href="/">
           <img src={Logo} alt="Logo do Efood" />
         </a>
-        <CartButton onClick={openCart}>
+        <S.CartButton onClick={openCart}>
           {items.length} produtos(s) no carrinho
-        </CartButton>
-      </HeaderContent>
-    </HeaderContainer>
+        </S.CartButton>
+      </S.HeaderContent>
+    </S.HeaderContainer>
   )
 }
 

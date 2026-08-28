@@ -1,6 +1,6 @@
-import { Banner, ContainerPerfil } from './styles'
-
 import { Restaurant } from '../../../models/Restaurant'
+
+import * as S from './styles'
 
 type Props = {
   banner: Restaurant
@@ -8,12 +8,12 @@ type Props = {
 
 const Apresentacao = ({ banner }: Props) => {
   return (
-    <Banner style={{ backgroundImage: `url(${banner.capa})` }}>
-      <ContainerPerfil>
+    <S.Banner style={{ backgroundImage: `url(${banner.capa})` }}>
+      <S.ContainerPerfil>
         <h4>{banner.tipo}</h4>
         <p>{banner.titulo}</p>
-      </ContainerPerfil>
-    </Banner>
+      </S.ContainerPerfil>
+    </S.Banner>
   )
 }
 

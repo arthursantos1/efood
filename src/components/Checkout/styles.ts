@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { cores } from '../../style'
+
+import { colors } from '../../style'
 import { ButtonContainer } from '../Button/styles'
 
 type InputGroupProps = {
@@ -8,7 +9,7 @@ type InputGroupProps = {
 
 export const Card = styled.div`
   h4 {
-    color: ${cores.douradoClaro};
+    color: ${colors.lightGold};
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 16px;
@@ -19,7 +20,7 @@ export const Card = styled.div`
   }
 
   p {
-    color: ${cores.douradoClaro};
+    color: ${colors.lightGold};
     font-size: 14px;
     line-height: 22px;
     padding: 8px 0;
@@ -34,15 +35,15 @@ export const InputGroup = styled.div<InputGroupProps>`
     display: block;
     font-size: 14px;
     font-weight: bold;
-    color: ${cores.douradoClaro};
+    color: ${colors.lightGold};
     padding: 8px 0;
   }
 
   input {
     width: 100%;
     height: 32px;
-    border: 1px solid ${cores.branco};
-    background-color: ${cores.douradoClaro};
+    border: 1px solid ${colors.white};
+    background-color: ${colors.lightGold};
 
     &.error {
       border: 3px solid red;

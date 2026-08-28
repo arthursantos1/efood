@@ -15,3 +15,10 @@ export const getTotalPrice = (items: Cardapio[]) => {
     return 0
   }, 0)
 }
+
+export const getDescricao = (descricao: string) => {
+  if (descricao.length > 95) {
+    return descricao.slice(0, 120) + '...'
+  }
+  return descricao
+}
