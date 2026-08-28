@@ -347,7 +347,7 @@ const Checkout = ({ onVoltar }: Props) => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireYear') ? 'error' : ''}
-                    mask="00"
+                    mask="99"
                   />
                 </S.InputGroup>
               </S.Row>
