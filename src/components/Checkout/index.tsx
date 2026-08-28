@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useFormik } from 'formik'
 import { usePurchaseMutation } from '../../services/api'
 import { useDispatch, useSelector } from 'react-redux'
@@ -140,13 +140,8 @@ const Checkout = ({ onVoltar }: Props) => {
 
   const closeCart = () => {
     dispatch(close())
+    dispatch(clear())
   }
-
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(clear())
-    }
-  }, [isSuccess, dispatch])
 
   return (
     <form onSubmit={form.handleSubmit}>
