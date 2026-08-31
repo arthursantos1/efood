@@ -40,31 +40,41 @@ const Checkout = ({ onVoltar }: Props) => {
     },
     validationSchema: Yup.object({
       nome: Yup.string()
-        .min(5, 'O nome precisar ter pelo menos 5 caracteres')
-        .required('Campo obrigatorio'),
-      endereco: Yup.string()
-        .max(50, 'O endereço precisa ter até 50 caracteres')
-        .required('Campo obrigatorio'),
-      cidade: Yup.string()
-        .max(32, 'O máximo de caracteres é 32')
-        .required('Campo obrigatorio'),
+        .min(3, 'Digite seu nome completo')
+        .required('O nome é obrigatorio'),
+      endereco: Yup.string().required('O endereço é obrigatorio'),
+      cidade: Yup.string().required('A cidade é obrigatória'),
       cep: Yup.string()
-        .min(9, 'O minimo de caracteres é 9')
-        .max(9, 'O maximo de caracteres é 9')
-        .required('O Campo é obrigatorio'),
-      numero: Yup.string()
-        .min(2, 'O Campo deve ter no minimo 2 caracteres')
-        .required('O Campo é obrigatorio'),
-      complemento: Yup.string().max(
-        100,
-        'O Campo deve ser preenchido com maximo de 100 caracterest'
-      ),
-
-      cardName: Yup.string().required('O campo é obrigatorio'),
-      cardNumber: Yup.string().required('O campo é obrigatorio'),
-      cardCode: Yup.string().required('O campo é obrigatorio'),
-      expireMonth: Yup.string().required('O campo é obrigatorio'),
-      expireYear: Yup.string().required('O campo é obrigatorio')
+        .matches(/^\d{5}-?\d{3}$/, 'Digite um CEP valido')
+        .required('O CEP é obrigatório'),
+      //Campos de validação do cartão
+      cardNumber: Yup.string()
+        .test(
+          'numero-cartao',
+          'Digite um número de cartão valido de 16 digitos',
+          (value) => {
+            const numero = value?.replace(/\D/g, '')
+            return numero?.length == 16
+          }
+        )
+        .required('O número do cartão é obrigatório'),
+      cardName: Yup.string()
+        .min(3, 'Digite o nome presente no cartão')
+        .required('O nome no cartão é obrigatório'),
+      cardCode: Yup.string()
+        .matches(/^\d{3,4}$/, 'O CVV deve ter 3 números')
+        .required('O CVV é obrigatório'),
+      expireMonth: Yup.string()
+        .matches(/^(0[1-9]|1[0-2])$/, 'Digite um Mês válido')
+        .required('O mês é obrigatório'),
+      expireYear: Yup.string()
+        .matches(/^\d{2}$/, 'Digite o ano com 2 números')
+        .test('ano-minimo', 'O ano deve ser 2026 ou posterior', (value) => {
+          if (!value) return false
+          const ano = Number(`20${value}`)
+          return ano >= 2026
+        })
+        .required('O ano é obrigatório')
     }),
     onSubmit: async (values) => {
       purchase({
@@ -191,6 +201,7 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('nome') ? 'error' : ''}
                 />
+                {checkInputHasError('nome') && <span>{form.errors.nome}</span>}
               </S.InputGroup>
               <S.InputGroup>
                 <label htmlFor="endereco">Endereço</label>
@@ -203,6 +214,9 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('endereco') ? 'error' : ''}
                 />
+                {checkInputHasError('endereco') && (
+                  <span>{form.errors.endereco}</span>
+                )}
               </S.InputGroup>
               <S.InputGroup>
                 <label htmlFor="cidade">Cidade</label>
@@ -215,6 +229,9 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('cidade') ? 'error' : ''}
                 />
+                {checkInputHasError('cidade') && (
+                  <span>{form.errors.cidade}</span>
+                )}
               </S.InputGroup>
               <S.Row>
                 <S.InputGroup maxWidth="155px">
@@ -229,6 +246,7 @@ const Checkout = ({ onVoltar }: Props) => {
                     className={checkInputHasError('cep') ? 'error' : ''}
                     mask="99999-999"
                   />
+                  {checkInputHasError('cep') && <span>{form.errors.cep}</span>}
                 </S.InputGroup>
                 <S.InputGroup maxWidth="155px">
                   <label htmlFor="numero">Número</label>
@@ -289,6 +307,9 @@ const Checkout = ({ onVoltar }: Props) => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('cardName') ? 'error' : ''}
                 />
+                {checkInputHasError('cardName') && (
+                  <span>{form.errors.cardName}</span>
+                )}
               </S.InputGroup>
               <S.Row>
                 <S.InputGroup maxWidth="228px">
@@ -303,6 +324,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     className={checkInputHasError('cardNumber') ? 'error' : ''}
                     mask="9999 9999 9999 9999"
                   />
+                  {checkInputHasError('cardNumber') && (
+                    <span>{form.errors.cardNumber}</span>
+                  )}
                 </S.InputGroup>
                 <S.InputGroup maxWidth="87px">
                   <label htmlFor="cardCode">CVV</label>
@@ -316,6 +340,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     className={checkInputHasError('cardCode') ? 'error' : ''}
                     mask="999"
                   />
+                  {checkInputHasError('cardCode') && (
+                    <span>{form.errors.cardCode}</span>
+                  )}
                 </S.InputGroup>
               </S.Row>
               <S.Row>
@@ -331,6 +358,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     className={checkInputHasError('expireMonth') ? 'error' : ''}
                     mask="99"
                   />
+                  {checkInputHasError('expireMonth') && (
+                    <span>{form.errors.expireMonth}</span>
+                  )}
                 </S.InputGroup>
                 <S.InputGroup maxWidth="155px">
                   <label htmlFor="expireYear">Ano de vencimento</label>
@@ -344,6 +374,9 @@ const Checkout = ({ onVoltar }: Props) => {
                     className={checkInputHasError('expireYear') ? 'error' : ''}
                     mask="99"
                   />
+                  {checkInputHasError('expireYear') && (
+                    <span>{form.errors.expireYear}</span>
+                  )}
                 </S.InputGroup>
               </S.Row>
               <S.ContainerButton>

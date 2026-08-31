@@ -49,6 +49,10 @@ export const InputGroup = styled.div<InputGroupProps>`
       border: 3px solid red;
     }
   }
+
+  span {
+    color: ${colors.lightWhite};
+  }
 `
 
 export const Row = styled.div`
